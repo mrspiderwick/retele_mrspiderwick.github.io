@@ -1,0 +1,669 @@
+
+function LungBit(){
+ let a,n,i,b;
+    n=2;
+    i=1;
+    
+    a = document.getElementById("LungB").value;
+    a=parseInt(a);
+
+    while (Math.pow(n,i) <= a) {
+        i++
+    }
+    b=a+i;
+    console.log(b);
+    document.getElementById("1").innerHTML=b ;
+}
+
+function LungOct(){
+ let a,b,i,n;
+    n=2;
+    i=1;
+    a = document.getElementById("LungO").value;
+    a=parseInt(a);
+    b=a*8;
+
+    while (Math.pow(n,i) <= b) {
+        i++
+    }
+    b+=i;
+
+    console.log(b);
+    document.getElementById("2").innerHTML=b;
+}
+
+function BitContr(){
+    let a,n,i;
+       n=2;
+       i=1;
+       a = document.getElementById("BContr").value;
+       a=parseInt(a);
+   
+       while (Math.pow(n,i) <= a) {
+           i++
+       }
+   
+   console.log(i);
+   document.getElementById("3").innerHTML=i;
+
+}
+
+function OctContr(){
+    let a,b,i,n;
+       n=2;
+       i=1;
+       a = document.getElementById("OContr").value;
+       a=parseInt(a);
+       b=a*8;
+   
+       while (Math.pow(n,i) <= b) {
+           i++
+       }
+       b+=i; 
+   
+       console.log(i);
+       document.getElementById("4").innerHTML= i;
+   }
+
+function Calc(){
+    console.log("------------------------New--------------------");
+    let ip,masc,m,clasa,cl;
+    ip = document.getElementById("IpCalc").value;
+    masc = document.getElementById("MascaCalc").value;
+    console.log("Ip adresa: "+ip +" Masca "+masc);
+    m="";
+    clasa="";
+    cl="1";
+    clasa = ip.charAt(0)+ip.charAt(1)+ip.charAt(2);
+    
+clasa = parseInt(clasa);
+
+(clasa>=0 && clasa<=126)?cl="A":
+(clasa>=128 && clasa<=191)?cl="B":
+(clasa>=192 && clasa<=223)?cl = "C":"Gresit"
+
+console.log("Clasa IP adresei "+cl);
+
+let c,c1;
+
+cl=="A"?c=8:
+cl=="B"?c=16:
+cl=="C"?c=24:"Gresit"    
+c = parseInt(c);
+c1=masc-c;
+
+
+
+    switch (cl) {
+        case "A":cl = "255.0.0.0";
+            break;
+        case "B":cl = "255.255.0.0";
+            break;
+        case "C":cl = "255.255.255.0";
+            break;   
+        default:
+            break;
+    }
+
+    console.log("Masca implicită de reţea "+cl);
+
+m=" ";
+
+masc = parseInt(masc);
+    switch (masc) {
+        case 30:m = "255.255.255.252";
+            break;
+        case 29:m = "255.255.255.248";
+            break;
+        case 28:m = "255.255.255.240";
+            break;
+        case 27:m = "255.255.255.224";
+            break;
+        case 26:m = "255.255.255.192";
+            break;
+        case 25:m = "255.255.255.128";
+            break;
+        case 24:m = "255.255.255.0";
+            break;
+        case 23:m = "255.255.254.0";
+            break;
+        case 22:m = "255.255.252.0";
+            break;
+        case 21:m = "255.255.248.0";
+            break;
+        case 20:m = "255.255.240.0";
+            break;
+        case 19:m = "255.255.224.0";
+            break;
+        case 18:m = "255.255.192.0";
+            break;
+        case 17:m = "255.255.128.0";
+            break;
+        case 16:m = "255.255.0.0";
+            break;
+        case 15:m = "255.254.0.0";
+            break;
+        case 14:m = "255.252.0.0";
+            break;
+        case 13:m = "255.248.0.0";
+            break;
+        case 12:m = "255.240.0.0";
+            break;
+        case 11:m = "255.224.0.0";
+            break;
+        case 10:m = "255.192.0.0";
+            break;
+        case 9:m = "255.128.0.0";
+            break;
+        case 8:m = "255.0.0.0";
+            break;   
+        default:
+            break;
+    }
+    //masca elemente
+    let a=['','','',''];
+    let j = 0;
+    for (let i = 0; i < cl.length; i++) {
+        if (cl.charAt(i)=='.') {
+            j++;
+        }else a[j]+=cl.charAt(i)+'';
+    }
+
+    //ip elemente 
+    let b=['','','',''];
+    j = 0;
+    for (let i = 0; i < ip.length; i++) {
+        if (ip.charAt(i)=='.') {
+            j++;
+        }else b[j]+=ip.charAt(i)+'';
+    }
+
+   //compararea
+    let a5 = "";
+
+    a[3]=="255"?a5=b[0]+'.'+b[1]+'.'+b[2]+'.'+b[3]:
+    a[2]=="255"?a5=b[0]+'.'+b[1]+'.'+b[2]+'.0':
+    a[1]=="255"?a5=b[0]+'.'+b[1]+'.0'+'.0':
+            a5=b[0]+'.0'+'.0'+'.0';
+
+    //Identificator subretea
+    let l=['','','',''];
+    j = 0;
+    for (let i = 0; i < m.length; i++) {
+        if (m.charAt(i)=='.') {
+            j++;
+        }else l[j]+=m.charAt(i)+'';
+    }
+    
+     
+//  ip binar
+    let decimal1;
+    if(l[1]<255){
+        decimal1=b[1];
+    }else if(l[2]<255){decimal1=b[2];}
+    else{decimal1=b[3];}
+    let binary1="";
+
+    while (decimal1 > 0) {
+        if (decimal1 & 1) {
+           binary1 = "1" + binary1;
+        } else {
+           binary1 = "0" + binary1;
+        }
+        decimal1 = decimal1 >> 1;
+     }; 
+
+     while (binary1.length < 8) {
+        binary1='0'+binary1;
+     }
+
+
+//   masca binar
+    let decimal;
+    
+    if(l[1]<255){
+        decimal=l[1];
+    }else if(l[2]<255){decimal=l[2];}
+    else{decimal=l[3];}
+
+    let binary="";
+
+    while (decimal > 0) {
+        if (decimal & 1) {
+           binary = "1" + binary;
+        } else {
+           binary = "0" + binary;
+        }
+        decimal = decimal >> 1;
+     }
+   
+    while (binary.length < 8) {
+        binary='0'+binary;
+     }
+
+
+// afisarea binar;
+    let rsbin="";
+    for (let i = 0; i < binary.length; i++) {
+        if (binary[i]==binary1[i]) {
+            rsbin+=binary[i];
+        }else rsbin+="0";
+    }
+
+    console.log("Masca extinsa a IP adresei: " + m);
+    console.log("Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1);
+    c2 = Math.pow(2,c1);
+    console.log("Numărul maximal de subreţele posibile: 2**"+c1+"="+c2 );
+    c3=32-masc;
+    console.log("Numărul de biţi rezervaţi pentru nod: "+ 32 +"-"+masc+"="+c3 );
+    c4 = Math.pow(2,c3)-2;
+    console.log("Numărul maximal de noduri posibile în fiecare subreţea: 2**"+c3+"-2"+"="+c4 );
+    console.log("Identificatorul de REŢEA (în format zecimal cu punct): "+a5);
+
+    rsbin = parseInt(rsbin,2);
+    if(l[1]<255){console.log("Identificatorul de SUBREŢEA "+b[0]+"."+rsbin+".0"+".0");}
+        else if(l[2]<255){console.log("Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+rsbin+".0");}
+          else {console.log("Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+b[2]+"."+rsbin);}  
+    
+    let pas;
+    if (l[3]!='0') {
+        pas=256-l[3];
+        console.log("Pasul subreţelei: 256-"+l[3]+"="+pas); 
+    }else if(l[2]!='0') {
+        pas=256-l[2];
+        console.log("Pasul subreţelei: 256-"+l[2]+"="+pas);}
+    else {
+        pas=256-l[1];
+        console.log("Pasul subreţelei: 256-"+l[1]+"="+pas);
+    }
+
+    console.log("Numărul subreţelei ί, unde ί este numărul de biţi rezervaţi pentru subreţea: "+c1+"*"+pas+"="+ c1*pas);
+    
+if(a[2]=='0'){console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+c1*pas+'.0');}
+    else if(a[3]='0'){console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+b[2]+'.'+c1*pas);}
+
+if(l[1]<255){
+    console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[1]);
+    }else if(l[2]<255){console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[2]);}
+    else{console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[3]);}
+    
+    console.log("Valoarea binară a octetului ce conţine nr. de subreţea şi o parte de nod: "+ binary1);
+
+    if(l[1]<255){console.log("Identificatorul de NOD a IP adresei iniţiale: 0."+ (b[3]-rsbin)+'.'+b[2]+'.'+b[3]);}
+        else if(l[2]<255){console.log("Identificatorul de NOD a IP adresei iniţiale: 0.0."+ (b[2]-rsbin)+'.'+b[3]);}
+          else {console.log("Identificatorul de NOD a IP adresei iniţiale: 0.0.0."+ (b[3]-rsbin));}  
+    
+    
+    // Ultimile 4 puncte
+        //masca implicita = 0
+        let t="";
+        let e1="";
+        let e2="";
+        let e3="";
+        let e4="";
+        let Decimal01 = l[2];
+        let Decimal02 = l[3];
+        let Binary01= "";
+        let Binary02= "";
+        
+        let DecimalSpec = 0;
+        if(a[2]=='0'){DecimalSpec = 128}
+            else if(a[3]=='0'){DecimalSpec = 192}
+            
+        let BinarySpec= "";
+
+        while (DecimalSpec > 0) {
+            if (DecimalSpec & 1) {
+                BinarySpec = "1" + BinarySpec;
+            } else {
+                BinarySpec = "0" + BinarySpec;
+            }
+            DecimalSpec = DecimalSpec >> 1;
+         }; 
+    
+         while (BinarySpec.length < 8) {
+            BinarySpec='0'+BinarySpec;
+            }
+//-------------------------------------------conditia ultimile 2 zero--------------------------------
+        
+//clasa A -------------------------------------------------------------------
+if(a[1]=='0'){
+    for (let i = 0; i < binary.length; i++) {
+        if (binary[i]==BinarySpec[i]) {
+            e1+=binary[i];
+        }else e1+="0";
+    }
+
+//analogic true
+//0000.0000
+
+
+while (Decimal01 > 0) {
+if (Decimal01 & 1) {
+    Binary01 = "1" + Binary01;
+} else {
+    Binary01 = "0" + Binary01;
+}
+Decimal01 = Decimal01 >> 1;
+}; 
+
+while (Binary01.length < 8) {
+    Binary01='0'+Binary01;
+}
+
+//inlocuiesc 1-0;
+for (let i = 0; i < Binary01.length; i++) {
+    if (Binary01[i]=='1') {
+        e2 += '0';
+   } else e2 += '1'; 
+}
+
+//xxxx.0000
+while (Decimal02 > 0) {
+if (Decimal02 & 1) {
+    Binary02 = "1" + Binary02;
+} else {
+    Binary02 = "0" + Binary02;
+}
+Decimal02 = Decimal02 >> 1;
+}; 
+
+while (Binary02.length < 8) {
+    Binary02='0'+Binary02;
+}
+//inlocuiesc 1-0;
+for (let i = 0; i < Binary02.length; i++) {
+    if (Binary02[i]=='0') {
+        e3 += '1';
+    } else e3 += '1'; 
+}
+
+for (let i = 0; i < Binary02.length; i++) {
+    if (Binary02[i]=='0') {
+        e4 += '1';
+   } else e4 += '0'; 
+}
+
+//atribuiere 1 la inceput dupa conditie
+e2=e2.slice(1)+'1';
+e3=e4.slice(1,7)+'0';
+e4=e4.slice(1,7)+'1';
+
+e1=parseInt(e1,2);
+e2=parseInt(e2,2);
+e3=parseInt(e3,2);
+e4=parseInt(e4,2);
+console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.0'+'.'+e2);
+console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.0'+'.'+e3);
+console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.0'+'.'+e4);
+
+e2='';
+e3='';
+e4='';
+//
+for (let i = 0; i < Binary02.length; i++) {
+    if (Binary02[i]=='1') {
+        e2 += '1';
+   } else e2 += '0'; 
+}
+
+e1 = Binary01;
+e1 = '0'+e1.slice(1);
+e2 = e2.slice(0,7)+'1';
+e1=parseInt(e1,2);
+e2=parseInt(e2,2);
+
+console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.255'+'.'+e2);
+
+for (let i = 0; i < Binary02.length; i++) {
+    if (Binary02[i]=='1') {
+        e3 += '1';
+        e4 += '1';
+   } else {e3 += '1'; e4 += '1'}; 
+}
+e3 = e3.slice(0,7)+'0';
+e3 = parseInt(e3,2);
+console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.255'+'.'+e3);
+e4 = e4.slice(0,7)+'1';
+e4 = parseInt(e4,2);
+console.log("Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+e1+'.255'+'.'+e4);
+
+    
+    }
+    //
+        //clasa B -------------------------------------------------------------------
+            //primele 3
+       else if(a[2]=='0'){
+                for (let i = 0; i < binary.length; i++) {
+                    if (binary[i]==BinarySpec[i]) {
+                        e1+=binary[i];
+                    }else e1+="0";
+                }
+
+        //analogic true
+        //0000.0000
+   
+
+        while (Decimal01 > 0) {
+            if (Decimal01 & 1) {
+                Binary01 = "1" + Binary01;
+            } else {
+                Binary01 = "0" + Binary01;
+            }
+            Decimal01 = Decimal01 >> 1;
+         }; 
+    
+            while (Binary01.length < 8) {
+                Binary01='0'+Binary01;
+            }
+            
+            //inlocuiesc 1-0;
+            for (let i = 0; i < Binary01.length; i++) {
+                if (Binary01[i]=='1') {
+                    e2 += '0';
+               } else e2 += '1'; 
+            }
+
+        //xxxx.0000
+        while (Decimal02 > 0) {
+            if (Decimal02 & 1) {
+                Binary02 = "1" + Binary02;
+            } else {
+                Binary02 = "0" + Binary02;
+            }
+            Decimal02 = Decimal02 >> 1;
+         }; 
+    
+            while (Binary02.length < 8) {
+                Binary02='0'+Binary02;
+            }
+            //inlocuiesc 1-0;
+            for (let i = 0; i < Binary02.length; i++) {
+                if (Binary02[i]=='0') {
+                    e3 += '1';
+                } else e3 += '1'; 
+            }
+
+            for (let i = 0; i < Binary02.length; i++) {
+                if (Binary02[i]=='0') {
+                    e4 += '1';
+               } else e4 += '0'; 
+            }
+
+            //atribuiere 1 la inceput dupa conditie
+            e2=e2.slice(1)+'1';
+            e3=e4.slice(1,7)+'0';
+            e4=e4.slice(1,7)+'1';
+
+            e1=parseInt(e1,2);
+            e2=parseInt(e2,2);
+            e3=parseInt(e3,2);
+            e4=parseInt(e4,2);
+            console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2);
+            console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3);
+            console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4);
+            
+            e2='';
+            e3='';
+            e4='';
+            //
+            for (let i = 0; i < Binary02.length; i++) {
+                if (Binary02[i]=='1') {
+                    e2 += '1';
+               } else e2 += '0'; 
+            }
+
+            e1 = Binary01;
+            e1 = '0'+e1.slice(1);
+            e2 = e2.slice(0,7)+'1';
+            e1=parseInt(e1,2);
+            e2=parseInt(e2,2);
+
+            console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2);
+            
+            for (let i = 0; i < Binary02.length; i++) {
+                if (Binary02[i]=='1') {
+                    e3 += '1';
+                    e4 += '1';
+               } else {e3 += '1'; e4 += '1'}; 
+            }
+            e3 = e3.slice(0,7)+'0';
+            e3 = parseInt(e3,2);
+            console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3);
+            e4 = e4.slice(0,7)+'1';
+            e4 = parseInt(e4,2);
+            console.log("Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4);
+
+        }//Daca e doar la ultimul rezo
+    //-------------------------------------------clasa C--------------------------------
+            //
+    /*       else if(a[3]=='0'){
+            
+                for (let i = 0; i < binary.length; i++) {
+                    if (binary[i]==BinarySpec[i]) {
+                        e1+=binary[i];
+                    }else e1+="0";
+                }
+                
+                e1=parseInt(e1,2);
+                console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e1);
+                
+                t1 = "10"+binary1.charAt(2)+binary1.charAt(3)+binary1.charAt(4)+binary1.charAt(5)+"10";
+                t1=parseInt(t1,2);
+                console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+t1);
+                
+                t2 = "10"+binary1.charAt(2)+binary1.charAt(3)+binary1.charAt(4)+binary1.charAt(5)+binary1.charAt(6)+binary1.charAt(7);
+                t2=parseInt(t2,2);
+                console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+t2);
+
+                t3 = "01"+binary1.charAt(2)+binary1.charAt(3)+binary1.charAt(4)+binary1.charAt(5)+"01";
+                t3=parseInt(t3,2);
+                console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+t3);
+                
+                t4 = "01"+binary1.charAt(2)+binary1.charAt(3)+binary1.charAt(4)+binary1.charAt(5)+"10";
+                t4=parseInt(t4,2);
+                console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+t4);
+                
+                t5 = "01"+binary1.charAt(2)+binary1.charAt(3)+binary1.charAt(4)+binary1.charAt(5)+binary1.charAt(6)+binary1.charAt(7);
+                t5=parseInt(t5,2);
+                console.log("Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+t5);
+                 
+            }*/
+            
+
+    else if(a[3]=='0'){
+
+    while (Decimal01 > 0) {
+        if (Decimal01 & 1) {
+            Binary01 = "1" + Binary01;
+        } else {
+            Binary01 = "0" + Binary01;
+        }
+        Decimal01 = Decimal01 >> 1;
+    }; 
+
+        while (Binary01.length < 8) {
+            Binary01='0'+Binary01;
+        }
+        
+        // inlocuiesc 1-0;
+        for (let i = 0; i < Binary01.length; i++) {
+            if (Binary01[i]=='1') {
+                e2 += '0';
+        } else e2 += '1'; 
+        }
+        
+
+    //xxxx.0000
+    while (Decimal02 > 0) {
+        if (Decimal02 & 1) {
+            Binary02 = "1" + Binary02;
+        } else {
+            Binary02 = "0" + Binary02;
+        }
+        Decimal02 = Decimal02 >> 1;
+    }; 
+
+        while (Binary02.length < 8) {
+            Binary02='0'+Binary02;
+        }
+        //inlocuiesc 1-0;
+        for (let i = 0; i < Binary02.length; i++) {
+            if (Binary02[i]=='0') {
+                e3 += '1';
+            } else e3 += '1'; 
+        }
+
+        for (let i = 0; i < Binary02.length; i++) {
+            if (Binary02[i]=='0') {
+                e4 += '1';
+        } else e4 += '0'; 
+        }
+
+
+        //atribuiere 1 la inceput dupa conditie
+        e2='1'+e2.slice(2)+'1';
+        e3=e3.slice(1,7)+'0';
+        e4=e4.slice(1,7)+'1';
+
+    
+        e2=parseInt(e2,2);
+        e3=parseInt(e3,2);
+        e4=parseInt(e4,2);
+        console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
+        console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+1));
+        console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+2));
+        
+        e2='';
+        e3='';
+        e4='';
+        //
+        for (let i = 0; i < Binary02.length; i++) {
+            if (Binary02[i]=='1') {
+                e2 += '1';
+            } else e2 += '0'; 
+        }
+
+
+        e2 = Binary02; 
+        e2 = '0'+e2.slice(1);
+        e2 = e2.slice(0,7)+'1';  
+        e2=parseInt(e2,2);        
+        console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
+        
+        e3 = Binary02;
+        e3 = '0'+e3.slice(1);
+        e3 = e3.slice(0,7)+'0';
+        e3 = parseInt(e3,2);
+        console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+2));
+
+
+        e4 = Binary02;
+        e4 = '0'+e4.slice(1);
+        e4 = e4.slice(0,7)+'1';
+        e4 = parseInt(e4,2);
+        console.log("Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+2));
+
+    }//Daca e doar la ultimul rezo
+
+}
