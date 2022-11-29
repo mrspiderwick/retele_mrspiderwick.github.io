@@ -81,7 +81,9 @@ clasa = parseInt(clasa);
 
 (clasa>=0 && clasa<=126)?cl="A":
 (clasa>=128 && clasa<=191)?cl="B":
-(clasa>=192 && clasa<=223)?cl = "C":"Gresit"
+(clasa>=192 && clasa<=223)?cl = "C":
+(clasa>=224 && clasa<=239)?cl = "D":
+(clasa>=240 && clasa<=255)?cl = "E":"Mai mare"
 
 console.log("Clasa IP adresei "+cl);
 show.innerHTML += "Clasa IP adresei "+cl+"<br>";
@@ -90,7 +92,7 @@ let c,c1;
 
 cl=="A"?c=8:
 cl=="B"?c=16:
-cl=="C"?c=24:"Gresit"    
+cl=="C"?c=24:"Mai mare"    
 c = parseInt(c);
 c1=masc-c;
 
@@ -649,7 +651,7 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
         } else e2 += '1'; 
         }
         
-
+Decimal02 = b[3];
     //xxxx.0000
     while (Decimal02 > 0) {
         if (Decimal02 & 1) {
@@ -666,7 +668,7 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
         //inlocuiesc 1-0;
         for (let i = 0; i < Binary02.length; i++) {
             if (Binary02[i]=='0') {
-                e3 += '1';
+                e3 += '0';
             } else e3 += '1'; 
         }
 
@@ -679,8 +681,8 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
 
         //atribuiere 1 la inceput dupa conditie
         e2='1'+e2.slice(2)+'1';
-        e3=e3.slice(1,7)+'0';
-        e4=e4.slice(1,7)+'1';
+        e3='10'+e3.slice(2,7)+'0';
+        e4=e3;
 
     
         e2=parseInt(e2,2);
@@ -689,48 +691,44 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
         console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
 show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2 +"<br>" 
 
-        console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+1));
-show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+1) +"<br>" 
+        console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3));
+show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3) +"<br>" 
 
-        console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+2));
-show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e2+2) +"<br>" 
+        console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1));
+show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1) +"<br>" 
 
         
         e2='';
         e3='';
         e4='';
         //
+
         for (let i = 0; i < Binary02.length; i++) {
             if (Binary02[i]=='1') {
-                e2 += '1';
-            } else e2 += '0'; 
+                e2 += '0';
+            } else e2 += '1'; 
         }
+         
+        e2 = '01'+e2.slice(2);
+        e2 = e2.slice(0,6)+'01';  
 
-
-        e2 = Binary02; 
-        e2 = '0'+e2.slice(1);
-        e2 = e2.slice(0,7)+'1';  
-        e2=parseInt(e2,2);        
+        
+        
+        e2=parseInt(e2,2);
+        
         console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
 show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2 +"<br>" 
 
         
-        e3 = Binary02;
-        e3 = '0'+e3.slice(1);
-        e3 = e3.slice(0,7)+'0';
+        e3 = Binary01;
+        e3 = '01'+e3.slice(2,6)+'10';
         e3 = parseInt(e3,2);
-        console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+2));
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+2) +"<br>" 
+        console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3));
+show.innerHTML += "Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3) +"<br>" 
 
-        
-
-
-        e4 = Binary02;
-        e4 = '0'+e4.slice(1);
-        e4 = e4.slice(0,7)+'1';
-        e4 = parseInt(e4,2);
-        console.log("Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+2));
-show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+2) +"<br>" 
+        e4 = e3;
+        console.log("Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+1));
+show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+1) +"<br>" 
 
 
     }//Daca e doar la ultimul rezo
