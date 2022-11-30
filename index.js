@@ -76,7 +76,7 @@ function Calc(){
     clasa="";
     cl="1";
     clasa = ip.charAt(0)+ip.charAt(1)+ip.charAt(2);
-    
+    show.innerHTML = ""; 
 clasa = parseInt(clasa);
 
 (clasa>=0 && clasa<=126)?cl="A":
@@ -342,8 +342,7 @@ if(l[1]<255){
         let Decimal02 = l[3];
         let Binary01= "";
         let Binary02= "";
-        
-        let DecimalSpec = 0;
+        let DecimalSpec = 128;
         if(a[2]=='0'){DecimalSpec = 128}
             else if(a[3]=='0'){DecimalSpec = 192}
             
@@ -362,14 +361,20 @@ if(l[1]<255){
             BinarySpec='0'+BinarySpec;
             }
 //-------------------------------------------conditia ultimile 2 zero--------------------------------
-        
+
 //clasa A -------------------------------------------------------------------
 if(a[1]=='0'){
+
+
+
     for (let i = 0; i < binary.length; i++) {
         if (binary[i]==BinarySpec[i]) {
             e1+=binary[i];
         }else e1+="0";
     }
+
+
+
 
 //analogic true
 //0000.0000
@@ -420,7 +425,6 @@ for (let i = 0; i < Binary02.length; i++) {
         e4 += '1';
    } else e4 += '0'; 
 }
-
 //atribuiere 1 la inceput dupa conditie
 e2=e2.slice(1)+'1';
 e3=e4.slice(1,7)+'0';
@@ -430,32 +434,64 @@ e1=parseInt(e1,2);
 e2=parseInt(e2,2);
 e3=parseInt(e3,2);
 e4=parseInt(e4,2);
-console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.0'+'.'+e2);
-show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.0'+'.'+e2 +"<br>" 
-console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.0'+'.'+e3);
-show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.0'+'.'+e3 +"<br>" 
-console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.0'+'.'+e4);
-show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.0'+'.'+e4 +"<br>" 
 
 
+if(l[2]<255){
+    e3 = 255;
+    e2 = 255-l[2];
+    
+    console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1');
+    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1' +"<br>" 
+
+    console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1));
+    show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1) +"<br>"
+    
+    console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3);
+    show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3 +"<br>" 
+
+}else if(l[3]<=255){
+    e3 = 255-l[3];
+    e2 = 255-l[2];
+    
+    console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1');
+    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1' +"<br>" 
+
+    console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1));
+    show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1) +"<br>"
+    
+    console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3);
+    show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3 +"<br>" 
+}
+
+
+
+e1='';
 e2='';
 e3='';
 e4='';
 //
+
+for (let i = 0; i < binary.length; i++) {
+    if (binary[i]==BinarySpec[i]) {
+        e1+=binary[i];
+    }else e1+="0";
+}
+
+
+
 for (let i = 0; i < Binary02.length; i++) {
     if (Binary02[i]=='1') {
         e2 += '1';
    } else e2 += '0'; 
 }
 
-e1 = Binary01;
-e1 = '0'+e1.slice(1);
+// e1 = e1.slice(0,5)+'111';
 e2 = e2.slice(0,7)+'1';
 e1=parseInt(e1,2);
 e2=parseInt(e2,2);
-
-console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.255'+'.'+e2);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.255'+'.'+e2 +"<br>" 
+e1--;
+console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+(255-(255-l[2]))+'.'+e2);
+show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+(255-(255-l[2]))+'.'+e2 +"<br>" 
 
 for (let i = 0; i < Binary02.length; i++) {
     if (Binary02[i]=='1') {
