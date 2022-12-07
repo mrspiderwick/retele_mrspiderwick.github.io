@@ -1,4 +1,7 @@
 
+let getpass,password = 1169;
+getpass = prompt("Introdu pasword",getpass);
+if(getpass == password){
 function LungBit(){
  let a,n,i,b;
     n=2;
@@ -65,9 +68,46 @@ function OctContr(){
        document.getElementById("4").innerHTML= i;
    }
 
+   function Ruter(){
+    let show = document.getElementById("rut");
+    show.innerHTML = ""; 
+    let DA = document.getElementById("DA").value;
+    let DI = document.getElementById("DI").value;
+    let DE = document.getElementById("DE").value;
+    // console.log(DA+" "+DI+" "+DE+" ");
+    let ba=3,bi=8,be=12;
+    let fa=20,fi=8,fe=14;
+    let ga=15,gi=8,ge=10;
+    let ha=2,hi=5,he=8;
+    let rs1,rs2,rs3,rs4;
+
+    DA = parseInt(DA);
+    DI = parseInt(DI);
+    DE = parseInt(DE);
+
+//B
+    if ((DE+be) <= (DI+bi) && (DE+be)<=(DA+ba)) {
+        rs1 = (DE+be)+"E";
+    } else if((DI+bi) <= (DA+ba) && (DI+bi) <= (DE+be)){rs1 = (DI+bi)+"I"}else {rs1 = (DA+ba)+"A"}
+//F
+    if ((DE+fe) <= (DI+fi) && (DE+fe)<=(DA+fa)) {
+        rs2 = (DE+fe)+"E";
+    } else if((DI+fi) <= (DA+fa) && (DI+fi) <= (DE+fe)){rs2 = (DI+fi)+"I"}else {rs2 = (DA+fa)+"A"}
+//G
+    if ((DE+ge) <= (DI+gi) && (DE+ge)<=(DA+ga)) {
+        rs3 = (DE+ge)+"E";
+    } else if((DI+gi) <= (DA+ga) && (DI+gi) <= (DE+ge)){rs3 = (DI+gi)+"I"}else {rs3 = (DA+ga)+"A"}
+//H
+    if ((DE+he) <= (DI+hi) && (DE+he)<=(DA+ha)) {
+        rs4 = (DE+he)+"E";
+    } else if((DI+hi) <= (DA+ha) && (DI+hi) <= (DE+he)){rs4 = (DI+hi)+"I"}else {rs4 = (DA+ha)+"A"}
+    show.innerHTML +=("B: "+rs1+"<br>F: "+rs2+"<br>G "+rs3+"<br>H "+rs4);
+   }
+
 function Calc(){
     console.log("------------------------New--------------------");
     let show = document.getElementById("5") ;
+    show.innerHTML = ""; 
     let ip,masc,m,clasa,cl;
     ip = document.getElementById("IpCalc").value;
     masc = document.getElementById("MascaCalc").value;
@@ -76,7 +116,6 @@ function Calc(){
     clasa="";
     cl="1";
     clasa = ip.charAt(0)+ip.charAt(1)+ip.charAt(2);
-    show.innerHTML = ""; 
 clasa = parseInt(clasa);
 
 (clasa>=0 && clasa<=126)?cl="A":
@@ -256,7 +295,7 @@ masc = parseInt(masc);
 
     console.log("Masca extinsa a IP adresei: " + m);
     show.innerHTML += "Masca extinsa a IP adresei: " + m +"<br>"
-    console.log("Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1);
+    console.log("Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1+"<br>");
     show.innerHTML += "Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1 +"<br>"
     c2 = Math.pow(2,c1);
     console.log("Numărul maximal de subreţele posibile: 2**"+c1+"="+c2 );
@@ -330,7 +369,25 @@ if(l[1]<255){
            show.innerHTML += "Identificatorul de NOD a IP adresei iniţiale: 0.0.0."+ (b[3]-rsbin) +"<br>" }
           
     
-    
+           
+
+    switch (ip) {
+        case '188.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
+            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
+            break;
+        case '198.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
+            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
+            break;
+        case '88.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
+            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
+            break;
+        default:    console.log("IP adresa iniţială poate fi atribuită unui nod?: DA");
+            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: DA"+"<br>";
+            break;
+    }
+
+
+
     // Ultimile 4 puncte
         //masca implicita = 0
         let t="";
@@ -376,8 +433,8 @@ if(a[1]=='0'){
 
 
 
-//analogic true
-//0000.0000
+ //analogic true
+ //0000.0000
 
 
 while (Decimal01 > 0) {
@@ -440,8 +497,8 @@ if(l[2]<255){
     e3 = 255;
     e2 = 255-l[2];
     
-    console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1');
-    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1' +"<br>" 
+    console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+'0'+'.'+'1');
+    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+'0'+'.'+'1' +"<br>" 
 
     console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1));
     show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1) +"<br>"
@@ -717,7 +774,7 @@ Decimal02 = b[3];
 
         //atribuiere 1 la inceput dupa conditie
         e2='1'+e2.slice(2)+'1';
-        e3='10'+e3.slice(2,7)+'0';
+        e3='10'+e3.slice(2,6)+'10';
         e4=e3;
 
     
@@ -769,4 +826,5 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită : "+b[0
 
     }//Daca e doar la ultimul rezo
 
+}
 }
