@@ -1,6 +1,7 @@
 
 let getpass,password = 1169;
-getpass = prompt("Introdu pasword",getpass);
+getpass = 1169;
+// prompt("Introdu pasword",getpass);
 if(getpass == password){
 function LungBit(){
  let a,n,i,b;
@@ -744,7 +745,7 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
         } else e2 += '1'; 
         }
         
-Decimal02 = b[3];
+Decimal02 = l[3];
     //xxxx.0000
     while (Decimal02 > 0) {
         if (Decimal02 & 1) {
@@ -759,8 +760,9 @@ Decimal02 = b[3];
             Binary02='0'+Binary02;
         }
         //inlocuiesc 1-0;
+        
         for (let i = 0; i < Binary02.length; i++) {
-            if (Binary02[i]=='0') {
+            if (Binary02[i]=='1') {
                 e3 += '0';
             } else e3 += '1'; 
         }
@@ -776,8 +778,6 @@ Decimal02 = b[3];
         e2='1'+e2.slice(2)+'1';
         e3='10'+e3.slice(2,6)+'10';
         e4=e3;
-
-    
         e2=parseInt(e2,2);
         e3=parseInt(e3,2);
         e4=parseInt(e4,2);
@@ -790,23 +790,14 @@ show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "
         console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1));
 show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1) +"<br>" 
 
-        
-        e2='';
+        e2=Binary02;
         e3='';
         e4='';
         //
 
-        for (let i = 0; i < Binary02.length; i++) {
-            if (Binary02[i]=='1') {
-                e2 += '0';
-            } else e2 += '1'; 
-        }
-         
-        e2 = '01'+e2.slice(2);
-        e2 = e2.slice(0,6)+'01';  
+    
 
-        
-        
+        e2 = '01'+e2.slice(2,6)+'01';
         e2=parseInt(e2,2);
         
         console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
