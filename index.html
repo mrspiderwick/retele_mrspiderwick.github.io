@@ -12,7 +12,7 @@
     }
 </style>
 <body>
-<H2 align="center">Calculator cod Hamming</H2>
+<H2 align="center" style="background-color:white;">Calculator cod Hamming</H2>
 <label for="">lungimea  codului  Hamming<br> pentru şirul iniţial în biţi</label><br>
 <input type="number" id="LungB">
 <button onclick="LungBit()">Calc</button><br>
@@ -37,7 +37,7 @@
 <label for="" id="4"> </label>
 <br>
 
-<H2 align="center">Calculator ruter D</H2>
+<H2 align="center" >Calculator ruter D</H2>
 <p>Daca datele coincid cu cele din imagine atunci e actual</p>
 <img src="ruter.jpg" style="height: 150px; ;" alt=""><br>
 <label for="">Introdu <i>DA</i></label><br>
@@ -49,7 +49,7 @@
 <button onclick="Ruter()">Calc</button><br>
 <label for="" id="rut" style="background-color:white;"> </label>
 
-<H2 align="center">Calculator Ip/Masca</H2>
+<H2 align="center" style="background-color:white;">Calculator Ip/Masca</H2>
 <label for="">Introdu ip</label><br>
 <input type="text" id="IpCalc"><br>
 <label for="">Introdu masca</label><br>
@@ -58,6 +58,96 @@
 <button onclick="Calc()">Calc</button><br>
 <label for="" id="5" style="background-color:white;"> </label>
 
+<table border="1">
+  <tr>
+    <td style="background-color:white;">Clasa IP adresei </td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="01" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Masca implicită de reţea</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="02" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Masca extinsa a IP adresei</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="03" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Numărul de biţi rezervaţi pentru subreţea</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="04" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Numărul maximal de subreţele posibile</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="05" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Numărul de biţi rezervaţi pentru nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="06" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Numărul maximal de noduri posibile în fiecare subreţea</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="07" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul de REŢEA (în format zecimal cu punct)</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="08" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul de SUBREŢEA</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="09" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Pasul subreţelei</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="10" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Numărul subreţelei ί, unde ί este numărul de biţi rezervaţi pentru subreţea</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="11" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul SUBREŢELEI i (în format zecimal cu punct)</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="12" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="13" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Valoarea binară a octetului ce conţine nr. de subreţea şi o parte de nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="14" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul de NOD a IP adresei iniţiale</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="15" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">IP adresa iniţială poate fi atribuită unui nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="16" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul primei subreţele atribuite cu primul nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="17" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul primei subreţele atribuite cu ultimul nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="18" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Adresa de difuzare pentru prima subreţea atribuită</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="19" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul ultimei subreţele atribuite cu primul nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="20" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Identificatorul ultimei subreţele atribuite cu ultimul nod</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="21" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+  <tr>
+    <td style="background-color:white;">Adresa de difuzare pentru ultima subreţea atribuită</td style="background-color:white;">
+    <td style="background-color:white;"><label for="" id="22" style="background-color:white;"> </label></td style="background-color:white;">
+  </tr>
+</table>
 
 </body>
 <script src="index.js"></script>

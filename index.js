@@ -1,114 +1,116 @@
-
-let getpass,password = 1169;
-getpass = 1169;
+let getpass="",password ;
+getpass = true;
 // prompt("Introdu pasword",getpass);
-if(getpass == password){
-function LungBit(){
- let a,n,i,b;
-    n=2;
-    i=1;
+console.log(getpass);
+// password = getpass.charAt(0)>0 && getpass.charAt(0)<2 && (getpass.charAt(1)==1) && getpass.charAt(2) == (3*2) && getpass.charAt(3) == (81/9);
+if(getpass){
     
-    a = document.getElementById("LungB").value;
-    a=parseInt(a);
-
-    while (Math.pow(n,i) <= a) {
-        i++
-    }
-    b=a+i;
-    console.log(b);
-    document.getElementById("1").innerHTML=b ;
-}
-
-function LungOct(){
- let a,b,i,n;
-    n=2;
-    i=1;
-    a = document.getElementById("LungO").value;
-    a=parseInt(a);
-    b=a*8;
-
-    while (Math.pow(n,i) <= b) {
-        i++
-    }
-    b+=i;
-
-    console.log(b);
-    document.getElementById("2").innerHTML=b;
-}
-
-function BitContr(){
-    let a,n,i;
-       n=2;
-       i=1;
-       a = document.getElementById("BContr").value;
-       a=parseInt(a);
-   
-       while (Math.pow(n,i) <= a) {
-           i++
+    function LungBit(){
+        let a,n,i,b;
+           n=2;
+           i=1;
+           
+           a = document.getElementById("LungB").value;
+           a=parseInt(a);
+       
+           while (Math.pow(n,i) <= a) {
+               i++
+           }
+           b=a+i;
+           console.log(b);
+           document.getElementById("1").innerHTML=b;
        }
-   
-   console.log(i);
-   document.getElementById("3").innerHTML=i;
-
-}
-
-function OctContr(){
-    let a,b,i,n;
-       n=2;
-       i=1;
-       a = document.getElementById("OContr").value;
-       a=parseInt(a);
-       b=a*8;
-   
-       while (Math.pow(n,i) <= b) {
-           i++
+       
+       function LungOct(){
+        let a,b,i,n;
+           n=2;
+           i=1;
+           a = document.getElementById("LungO").value;
+           a=parseInt(a);
+           b=a*8;
+       
+           while (Math.pow(n,i) <= b) {
+               i++
+           }
+           b+=i;
+       
+           console.log(b);
+           document.getElementById("2").innerHTML=b;
        }
-       b+=i; 
-   
-       console.log(i);
-       document.getElementById("4").innerHTML= i;
-   }
-
-   function Ruter(){
-    let show = document.getElementById("rut");
-    show.innerHTML = ""; 
-    let DA = document.getElementById("DA").value;
-    let DI = document.getElementById("DI").value;
-    let DE = document.getElementById("DE").value;
-    // console.log(DA+" "+DI+" "+DE+" ");
-    let ba=3,bi=8,be=12;
-    let fa=20,fi=8,fe=14;
-    let ga=15,gi=8,ge=10;
-    let ha=2,hi=5,he=8;
-    let rs1,rs2,rs3,rs4;
-
-    DA = parseInt(DA);
-    DI = parseInt(DI);
-    DE = parseInt(DE);
-
-//B
-    if ((DE+be) <= (DI+bi) && (DE+be)<=(DA+ba)) {
-        rs1 = (DE+be)+"E";
-    } else if((DI+bi) <= (DA+ba) && (DI+bi) <= (DE+be)){rs1 = (DI+bi)+"I"}else {rs1 = (DA+ba)+"A"}
-//F
-    if ((DE+fe) <= (DI+fi) && (DE+fe)<=(DA+fa)) {
-        rs2 = (DE+fe)+"E";
-    } else if((DI+fi) <= (DA+fa) && (DI+fi) <= (DE+fe)){rs2 = (DI+fi)+"I"}else {rs2 = (DA+fa)+"A"}
-//G
-    if ((DE+ge) <= (DI+gi) && (DE+ge)<=(DA+ga)) {
-        rs3 = (DE+ge)+"E";
-    } else if((DI+gi) <= (DA+ga) && (DI+gi) <= (DE+ge)){rs3 = (DI+gi)+"I"}else {rs3 = (DA+ga)+"A"}
-//H
-    if ((DE+he) <= (DI+hi) && (DE+he)<=(DA+ha)) {
-        rs4 = (DE+he)+"E";
-    } else if((DI+hi) <= (DA+ha) && (DI+hi) <= (DE+he)){rs4 = (DI+hi)+"I"}else {rs4 = (DA+ha)+"A"}
-    show.innerHTML +=("B: "+rs1+"<br>F: "+rs2+"<br>G "+rs3+"<br>H "+rs4);
-   }
-
+       
+       function BitContr(){
+           let a,n,i;
+              n=2;
+              i=1;
+              a = document.getElementById("BContr").value;
+              a=parseInt(a);
+          
+              while (Math.pow(n,i) <= a) {
+                  i++
+              }
+          
+          console.log(i);
+          document.getElementById("3").innerHTML=i;
+       
+       }
+       
+       function OctContr(){
+           let a,b,i,n;
+              n=2;
+              i=1;
+              a = document.getElementById("OContr").value;
+              a=parseInt(a);
+              b=a*8;
+          
+              while (Math.pow(n,i) <= b) {
+                  i++
+              }
+              b+=i; 
+          
+              console.log(i);
+              document.getElementById("4").innerHTML= i;
+          }
+       
+          function Ruter(){
+           let show = document.getElementById("rut");
+           show.innerHTML = ""; 
+           let DA = document.getElementById("DA").value;
+           let DI = document.getElementById("DI").value;
+           let DE = document.getElementById("DE").value;
+           // console.log(DA+" "+DI+" "+DE+" ");
+           let ba=3,bi=8,be=12;
+           let fa=20,fi=8,fe=14;
+           let ga=15,gi=8,ge=10;
+           let ha=2,hi=5,he=8;
+           let rs1,rs2,rs3,rs4;
+       
+           DA = parseInt(DA);
+           DI = parseInt(DI);
+           DE = parseInt(DE);
+       
+       //B
+           if ((DE+be) <= (DI+bi) && (DE+be)<=(DA+ba)) {
+               rs1 = (DE+be)+"E";
+           } else if((DI+bi) <= (DA+ba) && (DI+bi) <= (DE+be)){rs1 = (DI+bi)+"I"}else {rs1 = (DA+ba)+"A"}
+       //F
+           if ((DE+fe) <= (DI+fi) && (DE+fe)<=(DA+fa)) {
+               rs2 = (DE+fe)+"E";
+           } else if((DI+fi) <= (DA+fa) && (DI+fi) <= (DE+fe)){rs2 = (DI+fi)+"I"}else {rs2 = (DA+fa)+"A"}
+       //G
+           if ((DE+ge) <= (DI+gi) && (DE+ge)<=(DA+ga)) {
+               rs3 = (DE+ge)+"E";
+           } else if((DI+gi) <= (DA+ga) && (DI+gi) <= (DE+ge)){rs3 = (DI+gi)+"I"}else {rs3 = (DA+ga)+"A"}
+       //H
+           if ((DE+he) <= (DI+hi) && (DE+he)<=(DA+ha)) {
+               rs4 = (DE+he)+"E";
+           } else if((DI+hi) <= (DA+ha) && (DI+hi) <= (DE+he)){rs4 = (DI+hi)+"I"}else {rs4 = (DA+ha)+"A"}
+           show.innerHTML +=("B: "+rs1+"<br>F: "+rs2+"<br>G "+rs3+"<br>H "+rs4);
+          }
+       
 function Calc(){
     console.log("------------------------New--------------------");
-    let show = document.getElementById("5") ;
-    show.innerHTML = ""; 
+    let show = document.getElementById("5");
+
     let ip,masc,m,clasa,cl;
     ip = document.getElementById("IpCalc").value;
     masc = document.getElementById("MascaCalc").value;
@@ -126,7 +128,7 @@ clasa = parseInt(clasa);
 (clasa>=240 && clasa<=255)?cl = "E":"Mai mare"
 
 console.log("Clasa IP adresei "+cl);
-show.innerHTML += "Clasa IP adresei "+cl+"<br>";
+document.getElementById("01").innerHTML=cl;
 
 let c,c1;
 
@@ -135,7 +137,6 @@ cl=="B"?c=16:
 cl=="C"?c=24:"Mai mare"    
 c = parseInt(c);
 c1=masc-c;
-
 
 
     switch (cl) {
@@ -150,7 +151,7 @@ c1=masc-c;
     }
 
     console.log("Masca implicită de reţea "+cl);
-    show.innerHTML +="Masca implicită de reţea "+cl+"<br>"
+    document.getElementById("02").innerHTML=cl;
 m=" ";
 
 masc = parseInt(masc);
@@ -295,99 +296,96 @@ masc = parseInt(masc);
     }
 
     console.log("Masca extinsa a IP adresei: " + m);
-    show.innerHTML += "Masca extinsa a IP adresei: " + m +"<br>"
+    document.getElementById("03").innerHTML=m;
     console.log("Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1+"<br>");
-    show.innerHTML += "Numărul de biţi rezervaţi pentru subreţea: "+masc+"-"+c+"="+c1 +"<br>"
+    document.getElementById("04").innerHTML=masc+"-"+c+"="+c1;
     c2 = Math.pow(2,c1);
     console.log("Numărul maximal de subreţele posibile: 2**"+c1+"="+c2 );
-    show.innerHTML += "Numărul maximal de subreţele posibile: 2**"+c1+"="+c2 +"<br>"
+    document.getElementById("05").innerHTML="2**"+c1+"="+c2;
     c3=32-masc;
     console.log("Numărul de biţi rezervaţi pentru nod: "+ 32 +"-"+masc+"="+c3 );
-    show.innerHTML += "Numărul de biţi rezervaţi pentru nod: "+ 32 +"-"+masc+"="+c3 +"<br>"
+    document.getElementById("06").innerHTML=32 +"-"+masc+"="+c3;
     c4 = Math.pow(2,c3)-2;
     console.log("Numărul maximal de noduri posibile în fiecare subreţea: 2**"+c3+"-2"+"="+c4 );
-    show.innerHTML += "Numărul maximal de noduri posibile în fiecare subreţea: 2**"+c3+"-2"+"="+c4  +"<br>"
+    document.getElementById("07").innerHTML="2**"+c3+"-2"+"="+c4;
     console.log("Identificatorul de REŢEA (în format zecimal cu punct): "+a5);
-    show.innerHTML += "Identificatorul de REŢEA (în format zecimal cu punct): "+a5  +"<br>"
+    document.getElementById("08").innerHTML=a5;
 
     rsbin = parseInt(rsbin,2);
     if(l[1]<255){console.log("Identificatorul de SUBREŢEA "+b[0]+"."+rsbin+".0"+".0");
-    show.innerHTML += "Identificatorul de SUBREŢEA "+b[0]+"."+rsbin+".0"+".0" +"<br>"}
+    document.getElementById("09").innerHTML=b[0]+"."+rsbin+".0"+".0"}
         else if(l[2]<255){console.log("Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+rsbin+".0");
-        show.innerHTML += "Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+rsbin+".0" +"<br>"}
+        document.getElementById("09").innerHTML=b[0]+"."+b[1]+"."+rsbin+".0"}
           else {console.log("Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+b[2]+"."+rsbin);
-          show.innerHTML += "Identificatorul de SUBREŢEA "+b[0]+"."+b[1]+"."+b[2]+"."+rsbin +"<br>"}  
+          document.getElementById("09").innerHTML=b[0]+"."+b[1]+"."+b[2]+"."+rsbin}  
     
     let pas;
     if (l[3]!='0') {
         pas=256-l[3];
         console.log("Pasul subreţelei: 256-"+l[3]+"="+pas); 
-          show.innerHTML += "Pasul subreţelei: 256-"+l[3]+"="+pas +"<br>" 
+          document.getElementById("10").innerHTML="256-"+l[3]+"="+pas;
     }else if(l[2]!='0') {
         pas=256-l[2];
         console.log("Pasul subreţelei: 256-"+l[2]+"="+pas);
-        show.innerHTML += "Pasul subreţelei: 256-"+l[2]+"="+pas +"<br>" 
+        document.getElementById("10").innerHTML="256-"+l[2]+"="+pas;
+
     }
     else {
         pas=256-l[1];
         console.log("Pasul subreţelei: 256-"+l[1]+"="+pas);
-        show.innerHTML += "Pasul subreţelei: 256-"+l[1]+"="+pas +"<br>" 
+        document.getElementById("10").innerHTML="256-"+l[1]+"="+pas;
+         
     }
 
     console.log("Numărul subreţelei ί, unde ί este numărul de biţi rezervaţi pentru subreţea: "+c1+"*"+pas+"="+ c1*pas);
-    show.innerHTML += "Numărul subreţelei ί, unde ί este numărul de biţi rezervaţi pentru subreţea: "+c1+"*"+pas+"="+ c1*pas +"<br>" 
+    document.getElementById("11").innerHTML=c1+"*"+pas+"="+ c1*pas;
 
-    
-if(a[2]=='0'){console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+c1*pas+'.0');
-show.innerHTML += "Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+c1*pas+'.0' +"<br>" 
-}
-    else if(a[3]='0'){console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+b[2]+'.'+c1*pas);
-    show.innerHTML += "Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+b[2]+'.'+c1*pas +"<br>" 
-}
+    if(a[2]=='0'){
+        console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+c1*pas+'.0');
+        document.getElementById("12").innerHTML=b[0]+'.'+b[1]+'.'+c1*pas+'.0';
+        }
+        else if(a[3]='0'){
+            console.log("Identificatorul SUBREŢELEI i (în format zecimal cu punct): "+b[0]+'.'+b[1]+'.'+b[2]+'.'+c1*pas);
+            document.getElementById("12").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+c1*pas;
+            }
 
 if(l[1]<255){
     console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[1]);
-    show.innerHTML += "Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[1] +"<br>" 
+    document.getElementById("13").innerHTML=binary+"."+l[1];
 
     }else if(l[2]<255){console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[2]);
-    show.innerHTML += "Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[2] +"<br>" 
+    document.getElementById("13").innerHTML=binary+"."+l[2];
+
+
 }
     else{console.log("Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[3]);
-    show.innerHTML += "Valoarea binară şi zecimală a măştii în octetul ce conţine nr. de subreţea şi o parte de nod: "+ binary+"."+l[3] +"<br>" 
+    document.getElementById("13").innerHTML=binary+"."+l[3];
+
 }
     
     console.log("Valoarea binară a octetului ce conţine nr. de subreţea şi o parte de nod: "+ binary1);
-    show.innerHTML += "Valoarea binară a octetului ce conţine nr. de subreţea şi o parte de nod: "+ binary1 +"<br>" 
+    document.getElementById("14").innerHTML=binary1;
     
 
     if(l[1]<255){console.log("Identificatorul de NOD a IP adresei iniţiale: 0."+ (b[3]-rsbin)+'.'+b[2]+'.'+b[3]);
-    show.innerHTML += "Identificatorul de NOD a IP adresei iniţiale: 0."+ (b[3]-rsbin)+'.'+b[2]+'.'+b[3] +"<br>" 
+    document.getElementById("15").innerHTML="0."+(b[3]-rsbin)+'.'+b[2]+'.'+b[3];
+
 }
         else if(l[2]<255){console.log("Identificatorul de NOD a IP adresei iniţiale: 0.0."+ (b[2]-rsbin)+'.'+b[3]);
-        show.innerHTML += "Identificatorul de NOD a IP adresei iniţiale: 0.0."+ (b[2]-rsbin)+'.'+b[3] +"<br>" 
+        document.getElementById("15").innerHTML="0.0."+(b[2]-rsbin)+'.'+b[3];
+    
     }
           else { console.log("Identificatorul de NOD a IP adresei iniţiale: 0.0.0."+ (b[3]-rsbin));
-           show.innerHTML += "Identificatorul de NOD a IP adresei iniţiale: 0.0.0."+ (b[3]-rsbin) +"<br>" }
-          
-    
-           
+           document.getElementById("15").innerHTML="0.0.0."+(b[3]-rsbin);
+        } 
 
-    switch (ip) {
-        case '188.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
-            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
-            break;
-        case '198.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
-            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
-            break;
-        case '88.47.53.95':    console.log("IP adresa iniţială poate fi atribuită unui nod?: NU");
-            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: NU"+"<br>";
-            break;
-        default:    console.log("IP adresa iniţială poate fi atribuită unui nod?: DA");
-            show.innerHTML += "IP adresa iniţială poate fi atribuită unui nod?: DA"+"<br>";
-            break;
-    }
-
-
+        if (b[0]==10) {
+            document.getElementById("16").innerHTML="NU";
+        } else if (b[0]==172 && b[1]>=16 && b[1]<=31) {
+            document.getElementById("16").innerHTML="NU";
+        } else if (b[0]==192 && b[1]==168) {
+            document.getElementById("16").innerHTML="NU";
+        } else document.getElementById("16").innerHTML="DA";
 
     // Ultimile 4 puncte
         //masca implicita = 0
@@ -499,26 +497,27 @@ if(l[2]<255){
     e2 = 255-l[2];
     
     console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+'0'+'.'+'1');
-    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+'0'+'.'+'1' +"<br>" 
+    document.getElementById("17").innerHTML=b[0]+'.'+e1+'.'+'0'+'.'+'1';
 
     console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1));
-    show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1) +"<br>"
+    document.getElementById("18").innerHTML=b[0]+'.'+e1+'.'+e2+'.'+(e3-1);
     
     console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3);
-    show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3 +"<br>" 
+    document.getElementById("19").innerHTML=b[0]+'.'+e1+'.'+e2+'.'+e3;
 
 }else if(l[3]<=255){
     e3 = 255-l[3];
     e2 = 255-l[2];
     
     console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1');
-    show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+e2+'.'+'1' +"<br>" 
+    document.getElementById("17").innerHTML=b[0]+'.'+e1+'.'+e2+'.'+'1';
 
     console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1));
-    show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.'+e2+'.'+(e3-1) +"<br>"
+    document.getElementById("18").innerHTML=b[0]+'.'+e1+'.'+e2+'.'+(e3-1);
     
     console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3);
-    show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+e1+'.'+e2+'.'+e3 +"<br>" 
+    document.getElementById("19").innerHTML=b[0]+'.'+e1+'.'+e2+'.'+e3;
+
 }
 
 
@@ -549,7 +548,8 @@ e1=parseInt(e1,2);
 e2=parseInt(e2,2);
 e1--;
 console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+(255-(255-l[2]))+'.'+e2);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+e1+'.'+(255-(255-l[2]))+'.'+e2 +"<br>" 
+document.getElementById("20").innerHTML=b[0]+'.'+e1+'.'+(255-(255-l[2]))+'.'+e2;
+
 
 for (let i = 0; i < Binary02.length; i++) {
     if (Binary02[i]=='1') {
@@ -560,12 +560,13 @@ for (let i = 0; i < Binary02.length; i++) {
 e3 = e3.slice(0,7)+'0';
 e3 = parseInt(e3,2);
 console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.255'+'.'+e3);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+e1+'.255'+'.'+e3 +"<br>" 
+document.getElementById("21").innerHTML=b[0]+'.'+e1+'.255'+'.'+e3;
+
 
 e4 = e4.slice(0,7)+'1';
 e4 = parseInt(e4,2);
 console.log("Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+e1+'.255'+'.'+e4);
-show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+e1+'.255'+'.'+e4 +"<br>" 
+document.getElementById("22").innerHTML=b[0]+'.'+e1+'.255'+'.'+e4;
 
 
     
@@ -640,13 +641,13 @@ show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]
             e3=parseInt(e3,2);
             e4=parseInt(e4,2);
             console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2);
-show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2 +"<br>" 
+document.getElementById("17").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e2;
 
             console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3);
-show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3 +"<br>" 
+document.getElementById("18").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e3;
 
             console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4);
-show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4 +"<br>" 
+document.getElementById("19").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e4;
 
             
             e2='';
@@ -666,7 +667,7 @@ show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+
             e2=parseInt(e2,2);
 
             console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e2 +"<br>" 
+document.getElementById("20").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e2;
 
             
             for (let i = 0; i < Binary02.length; i++) {
@@ -678,12 +679,12 @@ show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "
             e3 = e3.slice(0,7)+'0';
             e3 = parseInt(e3,2);
             console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+e1+'.'+e3 +"<br>" 
+document.getElementById("21").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e3;
 
             e4 = e4.slice(0,7)+'1';
             e4 = parseInt(e4,2);
             console.log("Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4);
-show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+e1+'.'+e4 +"<br>" 
+document.getElementById("22").innerHTML=b[0]+'.'+b[1]+'.'+e1+'.'+e4;
 
 
         }//Daca e doar la ultimul rezo
@@ -782,13 +783,13 @@ Decimal02 = l[3];
         e3=parseInt(e3,2);
         e4=parseInt(e4,2);
         console.log("Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
-show.innerHTML += "Identificatorul primei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2 +"<br>" 
+document.getElementById("17").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+e2;
 
         console.log("Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3));
-show.innerHTML += "Identificatorul primei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3) +"<br>" 
+document.getElementById("18").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3);
 
         console.log("Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1));
-show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1) +"<br>" 
+document.getElementById("19").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3+1);
 
         e2=Binary02;
         e3='';
@@ -801,18 +802,18 @@ show.innerHTML += "Adresa de difuzare pentru prima subreţea atribuită: "+b[0]+
         e2=parseInt(e2,2);
         
         console.log("Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2);
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu primul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+e2 +"<br>" 
+document.getElementById("20").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+e2;
 
         
         e3 = Binary01;
         e3 = '01'+e3.slice(2,6)+'10';
         e3 = parseInt(e3,2);
         console.log("Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3));
-show.innerHTML += "Identificatorul ultimei subreţele atribuite cu ultimul nod: "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3) +"<br>" 
+document.getElementById("21").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+(e3);
 
         e4 = e3;
         console.log("Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+1));
-show.innerHTML += "Adresa de difuzare pentru ultima subreţea atribuită : "+b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+1) +"<br>" 
+document.getElementById("22").innerHTML=b[0]+'.'+b[1]+'.'+b[2]+'.'+(e4+1);
 
 
     }//Daca e doar la ultimul rezo
